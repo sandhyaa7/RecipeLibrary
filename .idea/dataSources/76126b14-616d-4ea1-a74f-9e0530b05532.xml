@@ -1037,30 +1037,66 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <column id="300" parent="299" name="id">
+    <table id="300" parent="292" name="user">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <column id="301" parent="299" name="id">
       <AutoIncrement>2</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="301" parent="299" name="recipeTitle">
+    <column id="302" parent="299" name="recipeTitle">
       <DataType>varchar(25)|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="302" parent="299" name="recipeIngredients">
+    <column id="303" parent="299" name="recipeIngredients">
       <DataType>varchar(500)|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="303" parent="299" name="recipeDescription">
+    <column id="304" parent="299" name="recipeDescription">
       <DataType>mediumtext|0s</DataType>
       <Position>4</Position>
     </column>
-    <index id="304" parent="299" name="PRIMARY">
+    <index id="305" parent="299" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="305" parent="299" name="PRIMARY">
+    <key id="306" parent="299" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="307" parent="300" name="userId">
+      <AutoIncrement>1</AutoIncrement>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="308" parent="300" name="firstName">
+      <DataType>varchar(20)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="309" parent="300" name="lastName">
+      <DataType>varchar(30)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="310" parent="300" name="userName">
+      <DataType>varchar(20)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="311" parent="300" name="password">
+      <DataType>varchar(25)|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <index id="312" parent="300" name="PRIMARY">
+      <ColNames>userId</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="313" parent="300" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
