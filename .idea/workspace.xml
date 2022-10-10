@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0609bdfc-7bec-43d8-89eb-7cb0050a1e19" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DesignDocuments/projectPlan.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DesignDocuments/userStories.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/recipe/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/recipe/persistence/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/76126b14-616d-4ea1-a74f-9e0530b05532.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/76126b14-616d-4ea1-a74f-9e0530b05532.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dump.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dump.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/timeLog.md" beforeDir="false" afterPath="$PROJECT_DIR$/timeLog.md" afterDir="false" />
-    </list>
+    <list default="true" id="0609bdfc-7bec-43d8-89eb-7cb0050a1e19" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -123,7 +114,7 @@
       <workItem from="1662926622200" duration="83000" />
       <workItem from="1664235190695" duration="2874000" />
       <workItem from="1665096217888" duration="1170000" />
-      <workItem from="1665185057192" duration="13277000" />
+      <workItem from="1665185057192" duration="13367000" />
     </task>
     <servers />
   </component>
