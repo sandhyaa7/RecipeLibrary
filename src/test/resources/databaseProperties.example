@@ -1,4 +1,3 @@
 driver=com.mysql.cj.jdbc.Driver
 url=jdbc:mysql://localhost:3306/recipeLibrary
-username=root
-password=Merogharsanep@1
+username=example
