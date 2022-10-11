@@ -32,7 +32,7 @@
 /out/
 
 # Maven
-*/target/**
+*/target/*
 */logs/**
 */lib/**
 */.idea/**
