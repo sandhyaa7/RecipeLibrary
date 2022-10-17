@@ -1,6 +1,7 @@
 package com.recipe.persistence;
 
 import com.recipe.entity.Recipe;
+import com.recipe.entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,6 +10,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * The type Recipe dao test.
+ */
 public class RecipeDaoTest {
     private final Logger logger = LogManager.getLogger(this.getClass());
     /**
@@ -28,6 +32,15 @@ public class RecipeDaoTest {
     }
 
     /**
+     * Verifies getAll runs successfully.
+     */
+    @Test
+    void getAllRecipesSuccess() {
+        List<Recipe> recipes = dao.getAllrecipes();
+        assertEquals(5, recipes.size());
+    }
+
+    /**
      * Verifies getById runs successfully.
      */
     @Test
@@ -38,31 +51,36 @@ public class RecipeDaoTest {
     }
 
     /**
+     * Verifies successfully Insert of recipes.
+     */
+    @Test
+    void insertSuccess() {
+        UserDao userDao = new UserDao();
+        User user = userDao.getUserById(1);
+        Recipe newRecipe = new Recipe("Carrot salad", "Donec eget elit cursus, vulputate dui at, consectetur eros. Sed finibus mollis lacus et viverra. Integer porta eget elit eu placerat. Phasellus a odio luctus, ultrices erat eget, tristique nunc. Cras ut urna id quam egestas fringilla. Maecenas sit amet", user);
+        user.addRecipe(newRecipe);
+
+        int id = dao.insert(newRecipe);
+
+        assertNotEquals(0,id);
+        Recipe insertedRecipe = dao.getRecipeById(id);
+        assertEquals("Carrot salad", insertedRecipe.getRecipeTitle());
+        assertNotNull(insertedRecipe.getUser());
+        assertEquals("Sam", insertedRecipe.getUser().getFirstName());
+    }
+
+    /**
      * Save or update success.
      */
     @Test
     void saveOrUpdateSuccess() {
         String newTitle = "Brinjal";
-        Recipe recipeToUpdate = dao.getRecipeById(1);
+        Recipe recipeToUpdate = dao.getRecipeById(3);
         recipeToUpdate.setRecipeTitle(newTitle);
         dao.saveOrUpdate(recipeToUpdate);
-        Recipe retrievedRecipe = dao.getRecipeById(1);
+        Recipe retrievedRecipe = dao.getRecipeById(3);
         assertEquals(newTitle, retrievedRecipe.getRecipeTitle());
         logger.info("Recipe title was updated.");
-    }
-
-    /**
-     * Verifies successfully Insert of recipes.
-     */
-    @Test
-    void insertSuccessful() {
-        Recipe newRecipe = new Recipe("Potato Fry", "Red potato, Olive oil, Salt, Red dried chillies", "Prep: 5 minutes Cook: 20 minutes Total: 25 minutes Ingredients: 5 medium size red potatoes, 1 Tbsp olive oil, salt to taste, 2 dried red chillies. Instructions: Cut the potato into bite-sized cubes. Heat oil in a large pot or pan, then add red chillies and cubed potatoes. Cook until potatoes are crisp and brown, 20 minutes.");
-        int id = dao.insert(newRecipe);
-        assertNotEquals(0,id);
-        Recipe insertedRecipe = dao.getRecipeById(id);
-        assertEquals("Potato Fry", insertedRecipe.getRecipeTitle());
-        assertEquals("Red potato, Olive oil, Salt, Red dried chillies", insertedRecipe.getRecipeIngredients());
-        assertEquals("Prep: 5 minutes Cook: 20 minutes Total: 25 minutes Ingredients: 5 medium size red potatoes, 1 Tbsp olive oil, salt to taste, 2 dried red chillies. Instructions: Cut the potato into bite-sized cubes. Heat oil in a large pot or pan, then add red chillies and cubed potatoes. Cook until potatoes are crisp and brown, 20 minutes.", insertedRecipe.getRecipeDescription());
     }
 
     /**
@@ -70,18 +88,30 @@ public class RecipeDaoTest {
      */
     @Test
     void deleteSuccess() {
-        dao.delete(dao.getRecipeById(1));
-        assertNull(dao.getRecipeById(1));
+        dao.delete(dao.getRecipeById(3));
+        assertNull(dao.getRecipeById(3));
     }
 
     /**
-     * Verifies getAll runs successfully.
+     * Gets by property equal success.
      */
     @Test
-    void getAllSuccess() {
-        List<Recipe> recipes = dao.getAllrecipes();
+    void getByPropertyEqualSuccess() {
+        List<Recipe> recipes = dao.getByPropertyEqual("recipeTitle", "Potato Salad");
         assertEquals(1, recipes.size());
+        assertEquals(2, recipes.get(0).getId());
     }
+
+    /**
+     * Gets by property like success.
+     */
+    @Test
+    void getByPropertyLikeSuccess() {
+        List<Recipe> recipes = dao.getByPropertyLike("recipeTitle", "p");
+        assertEquals(3, recipes.size());
+    }
+
+
 }
 
 

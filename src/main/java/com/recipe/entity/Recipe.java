@@ -8,15 +8,17 @@ import javax.persistence.*;
  * The type Recipe.
  */
 @Entity(name = "Recipe")
-@Table(name = "recipe")
+@Table(name = "recipes")
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
     private String recipeTitle;
-    private String recipeIngredients;
     private String recipeDescription;
+    @ManyToOne
+    private User user;
+
 
     /**
      * Instantiates a new Recipe.
@@ -28,13 +30,13 @@ public class Recipe {
      * Instantiates a new Recipe.
      *
      * @param recipeTitle       the recipe title
-     * @param recipeIngredients the recipe ingredients
      * @param recipeDescription the recipe description
+     * @param user              the user
      */
-    public Recipe(String recipeTitle, String recipeIngredients, String recipeDescription) {
+    public Recipe(String recipeTitle, String recipeDescription, User user) {
         this.recipeTitle = recipeTitle;
-        this.recipeIngredients = recipeIngredients;
         this.recipeDescription = recipeDescription;
+        this.user = user;
     }
 
     /**
@@ -52,7 +54,7 @@ public class Recipe {
      * @param id the id
      */
     public void setId(int id) {
-        id = id;
+        this.id = id;
     }
 
     /**
@@ -73,23 +75,6 @@ public class Recipe {
         this.recipeTitle = recipeTitle;
     }
 
-    /**
-     * Gets recipe ingredients.
-     *
-     * @return the recipe ingredients
-     */
-    public String getRecipeIngredients() {
-        return recipeIngredients;
-    }
-
-    /**
-     * Sets recipe ingredients.
-     *
-     * @param recipeIngredients the recipe ingredients
-     */
-    public void setRecipeIngredients(String recipeIngredients) {
-        this.recipeIngredients = recipeIngredients;
-    }
 
     /**
      * Gets recipe description.
@@ -109,12 +94,32 @@ public class Recipe {
         this.recipeDescription = recipeDescription;
     }
 
+    /**
+     * Gets user.
+     *
+     * @return the user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * Sets user.
+     *
+     * @param user the user
+     */
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return "Recipe{" +
-                "recipeTitle='" + recipeTitle + '\'' +
-                ", recipeIngredients='" + recipeIngredients + '\'' +
+                "id=" + id +
+                ", recipeTitle='" + recipeTitle + '\'' +
                 ", recipeDescription='" + recipeDescription + '\'' +
+                ", user=" + user +
                 '}';
     }
+
 }

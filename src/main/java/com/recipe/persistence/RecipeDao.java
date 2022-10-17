@@ -113,4 +113,36 @@ public class RecipeDao {
         transaction.commit();
         session.close();
     }
+
+    public List<Recipe> getByPropertyEqual(String propertyName, String value) {
+        Session session = sessionFactory.openSession();
+
+        logger.debug("Searching for recipe with " + propertyName + " = " + value);
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Recipe> query = builder.createQuery( Recipe.class );
+        Root<Recipe> root = query.from( Recipe.class );
+        query.select(root).where(builder.equal(root.get(propertyName), value));
+        List<Recipe> recipes = session.createQuery( query ).getResultList();
+
+        session.close();
+        return recipes;
+    }
+
+    public List<Recipe> getByPropertyLike(String propertyName, String value) {
+        Session session = sessionFactory.openSession();
+
+        logger.debug("Searching for recipe with {} = {}",  propertyName, value);
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Recipe> query = builder.createQuery( Recipe.class );
+        Root<Recipe> root = query.from( Recipe.class );
+        Expression<String> propertyPath = root.get(propertyName);
+
+        query.where(builder.like(propertyPath, "%" + value + "%"));
+
+        List<Recipe> recipes = session.createQuery( query ).getResultList();
+        session.close();
+        return recipes;
+    }
 }

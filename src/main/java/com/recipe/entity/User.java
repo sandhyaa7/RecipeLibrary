@@ -1,14 +1,28 @@
 package com.recipe.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * The type User.
  */
+@Entity(name = "User")
+@Table(name = "user")
 public class User {
-    private int userId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private int id;
     private String firstName;
     private String lastName;
     private String userName;
     private String password;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Recipe> recipes = new HashSet<>();
 
 
     /**
@@ -37,17 +51,17 @@ public class User {
      *
      * @return the user id
      */
-    public int getUserId() {
-        return userId;
+    public int getId() {
+        return id;
     }
 
     /**
      * Sets user id.
      *
-     * @param userId the user id
+     * @param id the user id
      */
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
@@ -122,6 +136,43 @@ public class User {
         this.password = password;
     }
 
+    /**
+     * Gets recipes.
+     *
+     * @return the recipes
+     */
+    public Set<Recipe> getRecipes() {
+        return recipes;
+    }
+
+    /**
+     * Sets recipes.
+     *
+     * @param recipes the recipes
+     */
+    public void setRecipes(Set<Recipe> recipes) {
+        this.recipes = recipes;
+    }
+
+    /**
+     * Add recipe.
+     *
+     * @param recipe the recipe
+     */
+    public void addRecipe(Recipe recipe) {
+        recipes.add(recipe);
+        recipe.setUser(this);
+    }
+
+    /**
+     * Remove recipe.
+     *
+     * @param recipe the recipe
+     */
+    public void removeRecipe(Recipe recipe) {
+        recipes.remove(recipe);
+        recipe.setUser(this);
+    }
     @Override
     public String toString() {
         return "User{" +
@@ -131,5 +182,7 @@ public class User {
                 ", password='" + password + '\'' +
                 '}';
     }
+
+
 
 }
