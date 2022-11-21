@@ -1,0 +1,3 @@
+com\recipe\persistence\RecipeDaoTest.class
+com\recipe\persistence\UserDaoTest.class
+com\recipe\util\Database.class

@@ -1,0 +1,7 @@
+com\recipe\controller\SearchRecipe$SearchUser.class
+com\recipe\entity\User.class
+com\recipe\entity\Recipe.class
+com\recipe\persistence\RecipeDao.class
+com\recipe\persistence\SessionFactoryProvider.class
+com\recipe\controller\SearchRecipe.class
+com\recipe\persistence\UserDao.class
