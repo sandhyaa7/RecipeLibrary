@@ -1,4 +1,3 @@
-com\recipe\controller\SearchRecipe$SearchUser.class
 com\recipe\entity\User.class
 com\recipe\entity\Recipe.class
 com\recipe\persistence\RecipeDao.class

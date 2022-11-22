@@ -28,7 +28,7 @@ public class RecipeDao {
      *
      * @return the allrecipes
      */
-    public List<Recipe> getAllrecipes() {
+    public List<Recipe> getAllRecipes() {
         Session session = sessionFactory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Recipe> query = builder.createQuery(Recipe.class);
@@ -51,7 +51,7 @@ public class RecipeDao {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Recipe> query = builder.createQuery(Recipe.class);
         Root<Recipe> root = query.from(Recipe.class);
-        Expression<String> propertyPath = root.get("firstName");
+        Expression<String> propertyPath = root.get("recipeTitle");
         query.where(builder.like(propertyPath, "%" + recipeTitle + "%"));
         List<Recipe> recipes = session.createQuery(query).getResultList();
         session.close();

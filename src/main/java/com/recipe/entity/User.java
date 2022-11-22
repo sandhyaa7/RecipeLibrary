@@ -15,7 +15,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private int id;
+    private int userId;
     private String firstName;
     private String lastName;
     private String userName;
@@ -52,7 +52,7 @@ public class User {
      * @return the user id
      */
     public int getId() {
-        return id;
+        return userId;
     }
 
     /**
@@ -61,7 +61,7 @@ public class User {
      * @param id the user id
      */
     public void setId(int id) {
-        this.id = id;
+        this.userId = id;
     }
 
     /**

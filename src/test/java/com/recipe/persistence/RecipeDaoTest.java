@@ -36,7 +36,7 @@ public class RecipeDaoTest {
      */
     @Test
     void getAllRecipesSuccess() {
-        List<Recipe> recipes = dao.getAllrecipes();
+        List<Recipe> recipes = dao.getAllRecipes();
         assertEquals(5, recipes.size());
     }
 

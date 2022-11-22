@@ -11,29 +11,25 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * The type Search recipe.
+ * The type Search recipe
  */
-public class SearchRecipe {
-    /**
-     * The type Search user.
-     */
     @WebServlet(
             urlPatterns = {"/searchRecipe"}
     )
 
-    public class SearchUser extends HttpServlet {
+    public class SearchRecipe extends HttpServlet {
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
             RecipeDao recipeDao = new RecipeDao();
             if (req.getParameter("submit").equals("search")) {
-                req.setAttribute("users", recipeDao.getRecipeByTitle(req.getParameter("searchTerm")));
+                req.setAttribute("recipes", recipeDao.getRecipeByTitle(req.getParameter("searchTerm")));
             } else {
-                req.setAttribute("users", recipeDao.getAllrecipes());
+                req.setAttribute("recipes", recipeDao.getAllRecipes());
             }
 
             RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
             dispatcher.forward(req, resp);
         }
     }
-}
+
