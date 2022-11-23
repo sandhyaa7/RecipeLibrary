@@ -4,21 +4,25 @@
   <artifactId>yourindieproject</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>YourIndieProject Maven Webapp</name>
+  <name>Recipe Library App</name>
   <url>http://maven.apache.org</url>
   <properties>
     <maven.compiler.release>11</maven.compiler.release>
     <junit.version>4.12</junit.version>
-    <javax.version>7.0</javax.version>
+    <javax.version>8.0.1</javax.version>
     <mysql-version>8.0.30</mysql-version>
-    <log4j-version>2.18.0</log4j-version>
+    <log4j-version>2.19.0</log4j-version>
     <junit-platform-runner-version>1.0.0</junit-platform-runner-version>
-    <junit.version>4.12</junit.version>
+    <junit.version>4.13.2</junit.version>
     <junit-vintage-version>4.12.0</junit-vintage-version>
     <jupiter-version>5.0.0</jupiter-version>
     <hibernate-version>5.4.4.Final</hibernate-version>
     <maven-surefire-plugin-version>2.19</maven-surefire-plugin-version>
     <maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
+    <lombok-version>1.18.10</lombok-version>
+    <autho-version>3.4.1</autho-version>
+    <json-version>20170516</json-version>
+    <commonsIo-version>2.11.0</commonsIo-version>
   </properties>
 
   <dependencies>
@@ -87,7 +91,31 @@
       <artifactId>hibernate-c3p0</artifactId>
       <version>${hibernate-version}</version>
     </dependency>
-  </dependencies>
+      <dependency>
+        <groupId>org.junit.platform</groupId>
+        <artifactId>junit-platform-surefire-provider</artifactId>
+        <version>${junit-platform-runner-version}</version>
+      </dependency>
+
+      <!-- for parsing access token -->
+      <dependency>
+        <groupId>com.auth0</groupId>
+        <artifactId>java-jwt</artifactId>
+        <version>${autho-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>${json-version}</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${commonsIo-version}</version>
+      </dependency>
+    </dependencies>
+
   <build>
     <finalName>RecipeLibrary</finalName>
     <pluginManagement>
@@ -100,13 +128,6 @@
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${maven-surefire-plugin-version}</version>
-          <dependencies>
-            <dependency>
-              <groupId>org.junit.platform</groupId>
-              <artifactId>junit-platform-surefire-provider</artifactId>
-              <version>${junit-platform-runner-version}</version>
-            </dependency>
-          </dependencies>
         </plugin>
       </plugins>
     </pluginManagement>
