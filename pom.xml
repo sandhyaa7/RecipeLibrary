@@ -8,13 +8,13 @@
   <url>http://maven.apache.org</url>
   <properties>
     <maven.compiler.release>11</maven.compiler.release>
-    <junit.version>4.12</junit.version>
-    <javax.version>8.0.1</javax.version>
-    <mysql-version>8.0.30</mysql-version>
-    <log4j-version>2.19.0</log4j-version>
     <junit-platform-runner-version>1.0.0</junit-platform-runner-version>
     <junit.version>4.13.2</junit.version>
     <junit-vintage-version>4.12.0</junit-vintage-version>
+    <javax.version>8.0.1</javax.version>
+    <mysql-version>8.0.30</mysql-version>
+    <log4j-version>2.19.0</log4j-version>
+
     <jupiter-version>5.0.0</jupiter-version>
     <hibernate-version>5.4.4.Final</hibernate-version>
     <maven-surefire-plugin-version>2.19</maven-surefire-plugin-version>
@@ -23,6 +23,9 @@
     <autho-version>3.4.1</autho-version>
     <json-version>20170516</json-version>
     <commonsIo-version>2.11.0</commonsIo-version>
+    <jackson-version>2.13.3</jackson-version>
+    <jersey-version>2.29.1</jersey-version>
+
   </properties>
 
   <dependencies>
@@ -114,7 +117,49 @@
         <artifactId>commons-io</artifactId>
         <version>${commonsIo-version}</version>
       </dependency>
-    </dependencies>
+
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>${jackson-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>${jackson-version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.glassfish.jersey.core</groupId>
+      <artifactId>jersey-client</artifactId>
+      <version>${jersey-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.glassfish.jersey.inject</groupId>
+      <artifactId>jersey-hk2</artifactId>
+      <version>${jersey-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.glassfish.jersey.containers</groupId>
+      <artifactId>jersey-container-servlet</artifactId>
+      <version>${jersey-version}</version>
+    </dependency>
+
+
+
+  </dependencies>
 
   <build>
     <finalName>RecipeLibrary</finalName>
