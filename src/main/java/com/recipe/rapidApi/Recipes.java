@@ -3,7 +3,7 @@ package com.recipe.rapidApi;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Results{
+public class Recipes{
 
 	@JsonProperty("data")
 	private List<DataItem> data;
@@ -19,7 +19,7 @@ public class Results{
 	@Override
  	public String toString(){
 		return 
-			"Results{" + 
+			"Recipes{" + 
 			"data = '" + data + '\'' + 
 			"}";
 		}
