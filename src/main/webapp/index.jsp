@@ -9,8 +9,10 @@
     </c:when>
     <c:otherwise>
         <h3>Welcome ${userName}</h3>
+        <a href="addEditRecipe.jsp">Add/Edit Recipes</a>
     </c:otherwise>
 </c:choose>
+
 <form action="searchRecipe" class="form-inline">
     <div class="form-group">
         <label for="searchTerm">Search</label>

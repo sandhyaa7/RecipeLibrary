@@ -40,6 +40,9 @@ public class Recipe {
         this.user = user;
     }
 
+    public Recipe(String recipeTitle, String recipeDescription) {
+    }
+
     /**
      * Gets id.
      *
