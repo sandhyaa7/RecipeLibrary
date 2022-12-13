@@ -41,6 +41,8 @@ public class Recipe {
     }
 
     public Recipe(String recipeTitle, String recipeDescription) {
+        this.recipeTitle = recipeTitle;
+        this.recipeDescription = recipeDescription;
     }
 
     /**

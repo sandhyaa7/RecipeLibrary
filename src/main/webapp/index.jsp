@@ -9,7 +9,7 @@
     </c:when>
     <c:otherwise>
         <h3>Welcome ${userName}</h3>
-        <a href="addEditRecipe.jsp">Add/Edit Recipes</a>
+        <a href="addRecipe.jsp">Add Recipes</a>
     </c:otherwise>
 </c:choose>
 

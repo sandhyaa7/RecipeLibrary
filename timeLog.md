@@ -14,3 +14,7 @@
 
 # Week6
 * Catching up on week 5 exercise and indie project.
+
+# Week7-15
+* Worked on implementing cognito and deploying to aws.
+* Worked on jsp pages to add recipes.
