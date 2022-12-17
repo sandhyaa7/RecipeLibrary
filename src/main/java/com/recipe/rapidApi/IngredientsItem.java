@@ -1,0 +1,73 @@
+package com.recipe.rapidApi;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class IngredientsItem{
+
+	@JsonProperty("image")
+	private String image;
+
+	@JsonProperty("foodId")
+	private String foodId;
+
+	@JsonProperty("weight")
+	private Object weight;
+
+	@JsonProperty("text")
+	private String text;
+
+	@JsonProperty("foodCategory")
+	private String foodCategory;
+
+	public void setImage(String image){
+		this.image = image;
+	}
+
+	public String getImage(){
+		return image;
+	}
+
+	public void setFoodId(String foodId){
+		this.foodId = foodId;
+	}
+
+	public String getFoodId(){
+		return foodId;
+	}
+
+	public void setWeight(Object weight){
+		this.weight = weight;
+	}
+
+	public Object getWeight(){
+		return weight;
+	}
+
+	public void setText(String text){
+		this.text = text;
+	}
+
+	public String getText(){
+		return text;
+	}
+
+	public void setFoodCategory(String foodCategory){
+		this.foodCategory = foodCategory;
+	}
+
+	public String getFoodCategory(){
+		return foodCategory;
+	}
+
+	@Override
+ 	public String toString(){
+		return 
+			"IngredientsItem{" + 
+			"image = '" + image + '\'' + 
+			",foodId = '" + foodId + '\'' + 
+			",weight = '" + weight + '\'' + 
+			",text = '" + text + '\'' + 
+			",foodCategory = '" + foodCategory + '\'' + 
+			"}";
+		}
+}
