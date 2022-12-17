@@ -114,6 +114,13 @@ public class RecipeDao {
         session.close();
     }
 
+    /**
+     * Gets by property equal.
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @return the by property equal
+     */
     public List<Recipe> getByPropertyEqual(String propertyName, String value) {
         Session session = sessionFactory.openSession();
 
@@ -129,6 +136,13 @@ public class RecipeDao {
         return recipes;
     }
 
+    /**
+     * Gets by property like.
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @return the by property like
+     */
     public List<Recipe> getByPropertyLike(String propertyName, String value) {
         Session session = sessionFactory.openSession();
 
